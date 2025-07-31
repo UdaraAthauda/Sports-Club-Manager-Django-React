@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function SelectForm({label, options, value, name, onChange, onBlur}) {
+export default function SelectForm({label, options, value, name, onChange, onBlur, error, helperText}) {
 
   return (
     
@@ -19,6 +19,8 @@ export default function SelectForm({label, options, value, name, onChange, onBlu
           name={name}
           onChange={onChange}
           onBlur={onBlur}
+          error={error}
+          helperText={helperText}
         >
             
         {options.map((option) => {
