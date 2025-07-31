@@ -5,12 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function SelectForm({label, options}) {
-  const [age, setAge] = React.useState('');
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+export default function SelectForm({label, options, value, name, onChange, onBlur}) {
 
   return (
     
@@ -19,9 +14,11 @@ export default function SelectForm({label, options}) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
           label={label}
-          onChange={handleChange}
+          value={value}
+          name={name}
+          onChange={onChange}
+          onBlur={onBlur}
         >
             
         {options.map((option) => {
