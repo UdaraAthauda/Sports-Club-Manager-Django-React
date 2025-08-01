@@ -20,6 +20,15 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.TexBox{
+    width: 100%;
+    min-width: 100px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .FormArea{
     width: 33%;
     padding: 15px;
