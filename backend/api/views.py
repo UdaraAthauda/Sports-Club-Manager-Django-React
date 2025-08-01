@@ -16,6 +16,11 @@ class CountryViewset(viewsets.ViewSet):
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
     
+    def retrieve(self, request, pk=None):
+        queryset = self.queryset.get(pk=pk)
+        serializer = self.serializer_class(queryset)
+        return Response(serializer.data)
+    
 
 class LeagueViewset(viewsets.ViewSet):
     permission_classes = [AllowAny]
@@ -45,7 +50,13 @@ class FootBallClubViewset(viewsets.ViewSet):
     serializer_class = FootBallClubSerializer
     
     def list(self, request):
-        queryset = FootBallClub.objects.all()
+        country_id = request.query_params.get('country')
+        
+        if country_id:
+            queryset = FootBallClub.objects.filter(country__id=country_id)
+        else:
+            queryset = FootBallClub.objects.all()
+            
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
         
